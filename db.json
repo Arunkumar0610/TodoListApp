@@ -1,0 +1,56 @@
+{
+  "task": [
+    {
+      "id": 0,
+      "username": "Arun123",
+      "tasks": [
+        {
+          "id": 0,
+          "task": "Wake Up at 5AM"
+        },
+        {
+          "id": 1,
+          "task": "Go to Office By 9AM"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "username": "Arun125",
+      "tasks": [
+        {
+          "id": 0,
+          "task": "Wake Early"
+        },
+        {
+          "id": 1,
+          "task": "Eat at Time"
+        },
+        {
+          "id": 2,
+          "task": "Go for a walk every 1 hour"
+        },
+        {
+          "id": 3,
+          "task": "Sleep Early"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "Arun",
+      "username": "Arun123",
+      "email": "arun@gmail.com",
+      "password": "Arun@123"
+    },
+    {
+      "id": 2,
+      "name": "Arun125",
+      "username": "Arun125",
+      "email": "arun125@gmail.com",
+      "password": "Arun@123"
+    }
+  ]
+}

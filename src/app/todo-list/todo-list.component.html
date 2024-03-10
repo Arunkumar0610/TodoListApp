@@ -1,0 +1,50 @@
+<div class="container-fluid" style="width:70%; left:15%; margin-top: 5%;">
+    <div id="message">
+        <div *ngIf="added" class="alert alert-success alert-dismissible fade show " >
+            <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="closeadded()"  aria-label="alert" ></button> 
+            Added Successfully !
+       </div> </div>
+       <div id="message">
+        <div *ngIf="edited" class="alert alert-success alert-dismissible fade show " >
+            <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="closeedited()"  aria-label="alert" ></button> 
+            Updated Successfully !
+       </div> </div>
+       <div id="message">
+        <div *ngIf="deleted" class="alert alert-success alert-dismissible fade show " >
+            <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="closedeleted()"  aria-label="alert" ></button> 
+            Removed Successfully !
+       </div> </div>
+    <div class="row" style="margin-bottom: 3%;">
+        <input type="text" [(ngModel)]="todos" placeholder="Add todo" class="form-control col-8" style="width: 60%;" />
+        &nbsp;<button (click)="addTodos()" class="btn btn-primary col-4" style="width:38%;"> Add Todo</button>
+        </div>
+<table class="table  table-striped table-bordered " style="text-align:center;">
+    <thead>
+        <tr class="table-primary">
+        <th scope="col">Task no.</th>
+        <th scope="col">Task</th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-light" *ngFor="let a of task">
+            <th scope="col">{{a.id}}</th>
+            <td>{{a.task}}</td>
+            <td><button class="btn btn-primary" (click)="EditTodo(a.id)"> Edit</button> &nbsp; <button class="btn btn-danger" (click)="removeTodo(a.id)"> Delete</button></td>
+        </tr>       
+    </tbody>
+</table>
+
+
+<div *ngIf="editflag">
+    <div class="container-fluid" style="width:70%; left:15%; margin-top:3%;">
+    <form #editForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="task">Task</label>
+            <input type="text" class="form-control" style="width:70%;" id="task" name="task" [(ngModel)]="todotask" required>          
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Edit</button>
+    </form>
+    </div>
+</div>
+</div>

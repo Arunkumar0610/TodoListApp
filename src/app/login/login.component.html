@@ -1,0 +1,33 @@
+<div class="container-fluid"  style="margin-top:7%">
+<div class="card" style="left:20%; width:60%;">
+    <div class="card-body ">
+        <h1 class="text-primary" style="text-align: center;">Login</h1>
+        <div id="message" style="padding:13px 13px;">
+            <span *ngIf="invalidcreds" class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="closeinvalidLogin()" aria-label="alert" ></button> 
+                Invalid Username or Password</span>
+        </div>
+        <form  [formGroup]="loginForm"  (ngSubmit)="userLogin()" novalidate>
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-2" ><label for="username">Username:</label></div>
+            <div class="col-12 col-md-8 col-lg-10"><input class="form-control" [class.is-invalid]="username?.invalid" id="username" placeholder="Username" type="text" formControlName="username" required>
+                <div *ngIf="username?.invalid && (username?.touched ||username?.dirty)">
+                    <small class="text-danger" *ngIf="username?.errors?.['required']">Username is required</small>
+                </div><br></div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-2"  ><label for="password">Password:</label></div>
+            <div class="col-12 col-md-8 col-lg-10"><input class="form-control" [class.is-invalid]="password?.invalid" id="password" placeholder="Password" type="password" formControlName="password" required>
+                <div *ngIf="password?.invalid && (password?.touched ||password?.dirty)">
+                    <small class="text-danger" *ngIf="password?.errors?.['required']">Password is required</small>
+                    <small class="text-danger" *ngIf="password?.errors?.['pattern']">Password must contain total atleast 8 to 15 characters atmost and must contain atleast one uppercase,one lowercase,one number, and one special character</small>
+                </div><br></div>
+        </div>
+        <div class="row" style="margin-top: 2%;">
+            <button class="btn btn-primary col-12" style=" width:50%; position: relative; left:32%; " type="submit" [disabled]="!loginForm.valid" >Submit</button>
+            <p class="col-12" style="margin-top: 2%; margin-left:8%;" >Don't have an Account ? &nbsp;<a class="link text-primary" [routerLink]="['/register']">Register here</a></p>
+        </div>
+    </form>
+    </div>
+</div>
+</div>
